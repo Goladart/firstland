@@ -3,20 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="description" content="ИИ-услуги: тексты, картинки, видео, чат-боты и автоматизация. Быстро, качественно, недорого.">
+<meta name="theme-color" content="#0f0f14">
 <title>ИИ-услуги — автоматизация и контент</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
   background: #0f0f14;
   color: #eaeaea;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+}
 
 /* HERO */
 .hero {
-  padding: 80px 0 60px;
+  padding: clamp(60px, 10vw, 100px) 0 clamp(40px, 8vw, 80px);
   text-align: center;
   background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f0f14 70%);
 }
@@ -27,108 +39,223 @@ body {
   border: 1px solid rgba(139, 92, 246, 0.4);
   border-radius: 100px;
   color: #a78bfa;
-  font-size: 14px;
+  font-size: clamp(12px, 1.5vw, 14px);
   margin-bottom: 24px;
 }
 .hero h1 {
-  font-size: 42px;
+  font-size: clamp(28px, 5.5vw, 52px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.15;
   margin-bottom: 20px;
   background: linear-gradient(135deg, #ffffff, #a78bfa);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
 }
 .hero p {
-  font-size: 18px;
+  font-size: clamp(15px, 2vw, 18px);
   color: #9ca3af;
-  max-width: 600px;
+  max-width: 620px;
   margin: 0 auto 32px;
 }
 .btn {
   display: inline-block;
-  padding: 16px 36px;
+  padding: clamp(14px, 2vw, 18px) clamp(28px, 4vw, 40px);
   background: linear-gradient(135deg, #8b5cf6, #6366f1);
   color: #fff;
   text-decoration: none;
   border-radius: 12px;
   font-weight: 600;
-  font-size: 16px;
-  transition: transform 0.2s;
+  font-size: clamp(15px, 1.8vw, 16px);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+  will-change: transform;
 }
-.btn:hover { transform: translateY(-2px); }
+.btn:hover, .btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.5);
+  outline: none;
+}
+.btn:active { transform: translateY(0); }
 
-/* SERVICES */
-.section { padding: 60px 0; }
+/* SECTIONS */
+.section { padding: clamp(40px, 8vw, 80px) 0; }
 .section h2 {
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 36px);
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: clamp(28px, 5vw, 48px);
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
+
+/* CARDS */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
 }
 .card {
   background: #16161f;
   border: 1px solid #24243a;
   border-radius: 16px;
-  padding: 28px;
-  transition: border-color 0.3s;
+  padding: clamp(20px, 3vw, 28px);
+  transition: border-color 0.3s, transform 0.3s;
 }
-.card:hover { border-color: #8b5cf6; }
-.card .icon { font-size: 32px; margin-bottom: 16px; }
-.card h3 { font-size: 20px; margin-bottom: 10px; }
-.card p { color: #9ca3af; font-size: 15px; }
+.card:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-4px);
+}
+.card .icon { font-size: clamp(28px, 4vw, 34px); margin-bottom: 14px; }
+.card h3 { font-size: clamp(17px, 2.2vw, 20px); margin-bottom: 10px; }
+.card p { color: #9ca3af; font-size: clamp(14px, 1.6vw, 15px); }
+
+/* PRICES */
+.prices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
+}
+.price-card {
+  background: linear-gradient(180deg, #16161f, #12121a);
+  border: 1px solid #24243a;
+  border-radius: 18px;
+  padding: clamp(22px, 3vw, 30px);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative;
+}
+.price-card:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-4px);
+}
+.price-card .icon { font-size: clamp(26px, 3.5vw, 32px); margin-bottom: 14px; }
+.price-card h3 { font-size: clamp(17px, 2.2vw, 20px); margin-bottom: 6px; }
+.price-card .desc {
+  color: #9ca3af;
+  font-size: clamp(13px, 1.5vw, 14px);
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+.price-card .price {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800;
+  color: #a78bfa;
+  margin-top: auto;
+  letter-spacing: -0.02em;
+}
+.price-card .price small {
+  font-size: 0.5em;
+  font-weight: 500;
+  color: #6b7280;
+  margin-right: 4px;
+}
+.price-card .unit {
+  font-size: clamp(12px, 1.4vw, 13px);
+  color: #6b7280;
+  margin-top: 4px;
+}
+.price-card.featured {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 1px #8b5cf6, 0 16px 40px rgba(139, 92, 246, 0.15);
+}
+.price-card.featured::before {
+  content: "Популярное";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: #8b5cf6;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
 
 /* STEPS */
 .steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-  counter-reset: step;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: clamp(16px, 2.5vw, 24px);
 }
 .step {
   background: #16161f;
   border-radius: 16px;
-  padding: 24px;
+  padding: clamp(20px, 2.5vw, 24px);
   border-left: 3px solid #8b5cf6;
 }
 .step-num {
-  font-size: 14px;
+  font-size: clamp(12px, 1.4vw, 14px);
   color: #8b5cf6;
   font-weight: 700;
   margin-bottom: 8px;
+  letter-spacing: 1px;
 }
-.step h4 { font-size: 17px; margin-bottom: 6px; }
-.step p { color: #9ca3af; font-size: 14px; }
+.step h4 { font-size: clamp(15px, 1.9vw, 17px); margin-bottom: 6px; }
+.step p { color: #9ca3af; font-size: clamp(13px, 1.5vw, 14px); }
 
 /* CTA */
 .cta {
   text-align: center;
-  padding: 60px 20px;
+  padding: clamp(40px, 7vw, 60px) clamp(20px, 4vw, 40px);
   background: linear-gradient(135deg, #1e1b4b, #16161f);
   border-radius: 24px;
   margin: 40px 0;
 }
-.cta h2 { font-size: 28px; margin-bottom: 16px; }
-.cta p { color: #9ca3af; margin-bottom: 28px; }
+.cta h2 { font-size: clamp(22px, 3.5vw, 32px); margin-bottom: 16px; }
+.cta p { color: #9ca3af; margin-bottom: 28px; font-size: clamp(14px, 1.7vw, 16px); }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 40px 20px;
+  padding: clamp(30px, 5vw, 50px) 20px;
   color: #6b7280;
-  font-size: 14px;
+  font-size: clamp(12px, 1.4vw, 14px);
   border-top: 1px solid #24243a;
 }
 footer a { color: #a78bfa; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 
+/* АДАПТИВ ПОД ПЛАНШЕТЫ */
+@media (max-width: 900px) {
+  .section { padding: 50px 0; }
+}
+
+/* АДАПТИВ ПОД ТЕЛЕФОНЫ */
 @media (max-width: 600px) {
-  .hero h1 { font-size: 30px; }
-  .section h2 { font-size: 24px; }
+  .cta { border-radius: 16px; margin: 24px 0; }
+  .price-card.featured::before { left: 16px; }
+}
+
+/* ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ */
+@media (max-width: 360px) {
+  .container { padding: 0 14px; }
+}
+
+/* БОЛЬШИЕ ЭКРАНЫ */
+@media (min-width: 1440px) {
+  .container { max-width: 1280px; }
+}
+
+/* СВЕТЛАЯ ТЕМА СИСТЕМЫ */
+@media (prefers-color-scheme: light) {
+  /* Сайт остаётся тёмным — это дизайн-выбор.
+     Если захотите светлую — раскомментируйте: */
+  /*
+  body { background: #fafafa; color: #111; }
+  .card, .step, .price-card { background: #fff; border-color: #e5e5e5; }
+  .hero { background: radial-gradient(circle at 50% 0%, #e0e7ff 0%, #fafafa 70%); }
+  .hero h1 { background: linear-gradient(135deg, #111, #6366f1); -webkit-background-clip: text; }
+  */
+}
+
+/* УМЕНЬШЕНИЕ АНИМАЦИЙ ДЛЯ ТЕХ, КОМУ ПЛОХО */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
 }
 </style>
 </head>
@@ -139,7 +266,64 @@ footer a { color: #a78bfa; text-decoration: none; }
     <div class="badge">✦ Работаю с ИИ</div>
     <h1>Автоматизирую рутину<br>и создаю контент с помощью ИИ</h1>
     <p>Тексты, картинки, видео, чат-боты и автоматизация. Быстро, качественно, недорого.</p>
-    <a href="#contact" class="btn">Обсудить задачу</a>
+    <a href="#prices" class="btn">Посмотреть цены</a>
+  </div>
+</section>
+
+<section class="section" id="prices">
+  <div class="container">
+    <h2>Цены</h2>
+    <div class="prices">
+
+      <div class="price-card">
+        <div class="icon">✍️</div>
+        <h3>Тексты и контент</h3>
+        <p class="desc">Посты, статьи, описания товаров, рассылки</p>
+        <div class="price"><small>от</small>500 ₽</div>
+        <div class="unit">за 1 текст</div>
+      </div>
+
+      <div class="price-card">
+        <div class="icon">🎨</div>
+        <h3>Картинки и дизайн</h3>
+        <p class="desc">Иллюстрации, обложки, аватарки, превью</p>
+        <div class="price"><small>от</small>300 ₽</div>
+        <div class="unit">за 1 изображение</div>
+      </div>
+
+      <div class="price-card featured">
+        <div class="icon">🎬</div>
+        <h3>Видео с ИИ-озвучкой</h3>
+        <p class="desc">Короткие ролики для Reels, Shorts, TikTok</p>
+        <div class="price"><small>от</small>1 500 ₽</div>
+        <div class="unit">за 1 видео</div>
+      </div>
+
+      <div class="price-card">
+        <div class="icon">🤖</div>
+        <h3>Чат-боты</h3>
+        <p class="desc">Telegram-бот для приёма заявок и ответов</p>
+        <div class="price"><small>от</small>3 000 ₽</div>
+        <div class="unit">под ключ</div>
+      </div>
+
+      <div class="price-card">
+        <div class="icon">⚙️</div>
+        <h3>Автоматизация</h3>
+        <p class="desc">Сценарии без кода: заявки, таблицы, уведомления</p>
+        <div class="price"><small>от</small>2 500 ₽</div>
+        <div class="unit">за сценарий</div>
+      </div>
+
+      <div class="price-card">
+        <div class="icon">🌐</div>
+        <h3>Лендинг</h3>
+        <p class="desc">Простой сайт-визитка или посадочная страница</p>
+        <div class="price"><small>от</small>5 000 ₽</div>
+        <div class="unit">под ключ</div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -212,13 +396,13 @@ footer a { color: #a78bfa; text-decoration: none; }
 <section class="container">
   <div class="cta" id="contact">
     <h2>Есть задача?</h2>
-    <p>Напишите — отвечу в течение дня и скажу, сколько будет стоить.</p>
-    <a href="https://t.me/castaw_op" class="btn">Написать в Telegram</a>
+    <p>Напишите — отвечу в течение дня и скажу точную стоимость.</p>
+    <a href="https://t.me/castaw_op" class="btn" rel="noopener noreferrer">Написать в Telegram</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 ИИ-услуги · Сделано с помощью ИИ</p>
+  <p>© 2026 ИИ-услуги · <a href="#prices">Цены</a> · <a href="#contact">Контакты</a></p>
 </footer>
 
 </body>
