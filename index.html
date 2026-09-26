@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ИИ-услуги — автоматизация и контент</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #0f0f14;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* HERO */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f0f14 70%);
+}
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 100px;
+  color: #a78bfa;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 18px;
+  color: #9ca3af;
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* SERVICES */
+.section { padding: 60px 0; }
+.section h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #16161f;
+  border: 1px solid #24243a;
+  border-radius: 16px;
+  padding: 28px;
+  transition: border-color 0.3s;
+}
+.card:hover { border-color: #8b5cf6; }
+.card .icon { font-size: 32px; margin-bottom: 16px; }
+.card h3 { font-size: 20px; margin-bottom: 10px; }
+.card p { color: #9ca3af; font-size: 15px; }
+
+/* STEPS */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  counter-reset: step;
+}
+.step {
+  background: #16161f;
+  border-radius: 16px;
+  padding: 24px;
+  border-left: 3px solid #8b5cf6;
+}
+.step-num {
+  font-size: 14px;
+  color: #8b5cf6;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.step h4 { font-size: 17px; margin-bottom: 6px; }
+.step p { color: #9ca3af; font-size: 14px; }
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1e1b4b, #16161f);
+  border-radius: 24px;
+  margin: 40px 0;
+}
+.cta h2 { font-size: 28px; margin-bottom: 16px; }
+.cta p { color: #9ca3af; margin-bottom: 28px; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 14px;
+  border-top: 1px solid #24243a;
+}
+footer a { color: #a78bfa; text-decoration: none; }
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 30px; }
+  .section h2 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="badge">✦ Работаю с ИИ</div>
+    <h1>Автоматизирую рутину<br>и создаю контент с помощью ИИ</h1>
+    <p>Тексты, картинки, видео, чат-боты и автоматизация. Быстро, качественно, недорого.</p>
+    <a href="#contact" class="btn">Обсудить задачу</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Чем могу помочь</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">✍️</div>
+        <h3>Тексты и контент</h3>
+        <p>Статьи, посты для соцсетей, описания товаров, рассылки, сценарии для видео.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Картинки и дизайн</h3>
+        <p>Иллюстрации, обложки, аватарки, превью для YouTube и соцсетей.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎬</div>
+        <h3>Видео</h3>
+        <p>Короткие ролики с ИИ-озвучкой для Reels, Shorts и TikTok.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>Чат-боты</h3>
+        <p>Боты для Telegram и сайтов: приём заявок, ответы клиентам, запись.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚙️</div>
+        <h3>Автоматизация</h3>
+        <p>Настройка сценариев без кода: заявки, таблицы, уведомления.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Сайты</h3>
+        <p>Простые лендинги и визитки под ключ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Как я работаю</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">ШАГ 1</div>
+        <h4>Заявка</h4>
+        <p>Вы описываете задачу и сроки.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">ШАГ 2</div>
+        <h4>Оценка</h4>
+        <p>Говорю цену и время.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">ШАГ 3</div>
+        <h4>Работа</h4>
+        <p>Делаю, показываю, правлю.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">ШАГ 4</div>
+        <h4>Результат</h4>
+        <p>Отдаю готовое, вы платите.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="cta" id="contact">
+    <h2>Есть задача?</h2>
+    <p>Напишите — отвечу в течение дня и скажу, сколько будет стоить.</p>
+    <a href="https://t.me/castaw_op" class="btn">Написать в Telegram</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ИИ-услуги · Сделано с помощью ИИ</p>
+</footer>
+
+</body>
+</html>
